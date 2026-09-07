@@ -1,6 +1,6 @@
 ---
 name: msa-claude-md
-description: "Generate minimal (<100 line) root CLAUDE.md + per-service CLAUDE.md files for MSA projects. Auto-detects tech stacks, uses See (not @) for zero-cost context loading, domain grouping for 10+ services. Use when setting up or auditing CLAUDE.md in microservice architectures."
+description: "Generate minimal (<100 line) root CLAUDE.md + per-service CLAUDE.md files for MSA projects. Auto-detects tech stacks, uses See (not @) for on-demand document loading, domain grouping for 10+ services. Use when setting up or auditing CLAUDE.md in microservice architectures."
 origin: community
 version: "1.0.0"
 license: MIT
@@ -31,7 +31,7 @@ Generate a **minimal root CLAUDE.md** (< 100 lines) as navigation hub, plus **pe
 
 1. **Root = index, not encyclopedia** -- service registry + shared conventions only
 2. **Per-service = autonomous** -- each service CLAUDE.md is self-contained
-3. **Conditional loading via `See`** -- Claude reads on-demand, zero startup cost
+3. **Conditional loading via `See`** -- linked document bodies are loaded when needed instead of imported automatically
 4. **< 100 lines root** -- every line must pass: "would removing this cause Claude to make mistakes?"
 5. **Context isolation** -- backend services don't need frontend guides, and vice versa
 
@@ -40,7 +40,7 @@ Generate a **minimal root CLAUDE.md** (< 100 lines) as navigation hub, plus **pe
 | Syntax | Behavior | Context Cost |
 |--------|----------|-------------|
 | `@docs/guide.md` | Loads into memory at startup | **Full file size** |
-| `See docs/guide.md` | Claude reads on-demand when needed | **Zero until accessed** |
+| `See docs/guide.md` | Claude reads on-demand when needed | **Linked body deferred until accessed** |
 
 **ALWAYS use `See` (without `@`)** for doc references in CLAUDE.md files.
 
