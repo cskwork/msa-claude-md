@@ -6,7 +6,7 @@ version: "1.0.0"
 license: MIT
 tools: [Bash, Grep, Read, Write, Glob]
 metadata:
-  author: danny
+  author: cskwork
   domain: project-setup
   triggers: "MSA setup, CLAUDE.md generator, microservice, monorepo, context optimization, service architecture"
   role: generator
